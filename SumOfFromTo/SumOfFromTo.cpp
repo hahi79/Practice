@@ -10,7 +10,7 @@ void calcSum(int a,int b);
 int main(int argc, char* argv[])
 {
 	int a,b;
-	if (argc >= 2) {
+	if (argc >= 3) {
 		sscanf(argv[1], "%d", &a);
 		sscanf(argv[2], "%d", &b);
 		calcSum(a,b);
