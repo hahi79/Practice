@@ -1,10 +1,10 @@
-//==========================================================
-//	3’l‚Ì’†‰›’l@•Ê‰ğ‚Æ‘¬“x”äŠr
+ï»¿//==========================================================
+//	3å€¤ã®ä¸­å¤®å€¤ã€€åˆ¥è§£ã¨é€Ÿåº¦æ¯”è¼ƒ
 //==========================================================
 #include <stdio.h>
 #include <stdlib.h>  // srand(),rand()
 #include <time.h>    // time()
-//  ŠÖ”ƒvƒƒgƒ^ƒCƒv
+//  é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—
 int MedianOfThree(int a, int b, int c);
 int MedianOfThree_Another1(int a, int b, int c);
 int MedianOfThree_Another2(int a, int b, int c);
@@ -18,9 +18,9 @@ int main()
     float time2 = MeasureTime(COUNT, MedianOfThree_Another1);
     float time3 = MeasureTime(COUNT, MedianOfThree_Another2);
 
-	printf("MedianOfThree()‚ÌŠÔ:%f•b\n", time1);
-	printf("MedianOfThree_Another1()‚ÌŠÔ:%f•b\n", time2);
-    printf("MedianOfThree_Another2()‚ÌŠÔ:%f•b\n", time3);
+	printf("MedianOfThree()ã®æ™‚é–“:%fç§’\n", time1);
+	printf("MedianOfThree_Another1()ã®æ™‚é–“:%fç§’\n", time2);
+    printf("MedianOfThree_Another2()ã®æ™‚é–“:%fç§’\n", time3);
     return 0;
 }
 
@@ -37,31 +37,31 @@ float MeasureTime(int count, int(*func)(int, int, int))
     float time = (float)(end - start) / CLOCKS_PER_SEC;
     return time;
 }
-// ListC1-1 ‚Ì‚Ü‚Ü
+// ListC1-1 ã®ã¾ã¾
 int MedianOfThree(int a, int b, int c)
 {
     if (a >= b) {
         if (b >= c) {
-            return b; //yAzyBzyFzyGz
+            return b; //ã€Aã€‘ã€Bã€‘ã€Fã€‘ã€Gã€‘
         }
         else if (a <= c) {
-            return a; //yDzyEzyHz
+            return a; //ã€Dã€‘ã€Eã€‘ã€Hã€‘
         }
         else {
-            return c; //yCz
+            return c; //ã€Cã€‘
         }
     }
     else if (a > c) {
-        return a; //yIz
+        return a; //ã€Iã€‘
     }
     else if (b > c) {
-        return c; //yJzyKz
+        return c; //ã€Jã€‘ã€Kã€‘
     }
     else {
-        return b; //yLzyMz
+        return b; //ã€Lã€‘ã€Mã€‘
     }
 }
-// ‰‰K1-5 ‚Ì‚Ü‚Ü
+// æ¼”ç¿’1-5 ã®ã¾ã¾
 int MedianOfThree_Another1(int a, int b, int c)
 {
     if ((b >=a && c <= a) || (b <= a && c >= a)) {
@@ -72,19 +72,19 @@ int MedianOfThree_Another1(int a, int b, int c)
     }
     return c;
 }
-// ‰‰K1-5 ‚ğ”»‚è‚â‚·‚­C³
+// æ¼”ç¿’1-5 ã‚’åˆ¤ã‚Šã‚„ã™ãä¿®æ­£
 int MedianOfThree_Another2(int a, int b, int c)
 {
     if ((b <= a && a <= c) || (c <= a && a <= b)) {
-        // a‚ª^‚ñ’†‚É‚È‚éğŒ‚Í
-        // b<=a<=c ‚Ü‚½‚Í c<=a<=b
+        // aãŒçœŸã‚“ä¸­ã«ãªã‚‹æ¡ä»¶ã¯
+        // b<=a<=c ã¾ãŸã¯ c<=a<=b
         return a;
     }
     else if ((a <= b && b <= c) || (c <= b && b <= a)) {
-        // b‚ª^‚ñ’†‚É‚È‚éğŒ‚Í
-        // a<= b<=c ‚Ü‚½‚Í c<=b<=a
+        // bãŒçœŸã‚“ä¸­ã«ãªã‚‹æ¡ä»¶ã¯
+        // a<= b<=c ã¾ãŸã¯ c<=b<=a
         return b;
     }
-    // ‚»‚êˆÈŠO‚Íc
+    // ãã‚Œä»¥å¤–ã¯c
     return c;
 }

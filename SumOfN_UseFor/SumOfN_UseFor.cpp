@@ -1,5 +1,5 @@
 ﻿//==========================================================
-//	1〜Nの総和　while版
+//	1〜Nの総和　for版
 //==========================================================
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> // sscanf(),scanf(),printf()
@@ -7,11 +7,11 @@
 int SumOfN(int n);
 void calcSum(int N);
 
-int main(int argc,char *argv[])
+int main(int argc, char* argv[])
 {
 	int N;
 	if (argc >= 2) {
-		sscanf(argv[1],"%d", &N);
+		sscanf(argv[1], "%d", &N);
 		calcSum(N);
 	}
 	else {
@@ -33,10 +33,8 @@ void calcSum(int N)
 int SumOfN(int n)
 {
 	int sum = 0;
-	int i = 1;
-	while (i <= n) {
+	for(int i=1; i<=n; i++){
 		sum += i;
-		i++;
 	}
 	return sum;
 }
