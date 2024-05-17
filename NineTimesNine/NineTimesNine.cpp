@@ -1,24 +1,24 @@
-//==========================================================
-//	‹ã‹ã•\‚ğ•\¦‚·‚é
+ï»¿//==========================================================
+//	ä¹ä¹è¡¨ã‚’è¡¨ç¤ºã™ã‚‹
 //==========================================================
 #define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h> // sscanf(),scanf(),printf()
-// ŠÖ”ƒvƒƒgƒ^ƒCƒv
+#include <stdio.h> // printf()
+// é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—
 
-int main(int argc, char* argv[])
+int main()
 {
 	const int TOP = 1;
 	const int END = 9;
 	int i, j;
-	// Åã’i‚Ì•\¦
+	// æœ€ä¸Šæ®µã®è¡¨ç¤º
 	printf("    |");
 	for (j = TOP; j <= END; j++) printf("%4d", j);
 	printf("\n");
-	//  ‹æØ‚è‚Ì•\¦
+	//  åŒºåˆ‡ã‚Šã®è¡¨ç¤º
 	printf("----+");
 	for (j = TOP; j <= END; j++)printf("----");
 	printf("\n");
-	//  •\‚Ì•\¦
+	//  è¡¨ã®è¡¨ç¤º
 	for (i = TOP; i <= END; i++) {
 		printf("%4d|", i);
 		for (j = TOP; j <= END; j++) {

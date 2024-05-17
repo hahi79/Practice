@@ -1,9 +1,9 @@
-//==========================================================
-//	J®”‚ÌŒ…”
+ï»¿//==========================================================
+//	ã‚›æ•´æ•°ã®æ¡æ•°
 //==========================================================
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> // sscanf(),scanf(),printf()
-// ŠÖ”ƒvƒƒgƒ^ƒCƒv
+// é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—
 int NumberOfDigits(int num);
 void calcDigit(int num);
 
@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
 	else {
 		while (true) {
 			do {
-				printf("³‚Ì®”:");
+				printf("æ­£ã®æ•´æ•°:");
 				scanf("%d", &num);
 			} while (num <= 0);
 			calcDigit(num);
@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
 void calcDigit(int num)
 {
 	int digit = NumberOfDigits(num);
-	printf("%d‚ÌŒ…”‚Í %d\n", num, digit);
+	printf("%dã®æ¡æ•°ã¯ %d\n", num, digit);
 }
 
 int NumberOfDigits(int num)
