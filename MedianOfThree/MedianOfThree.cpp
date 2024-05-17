@@ -1,10 +1,10 @@
-//=====================================
-//	3’l‚Ì’†‰›’l
-//=====================================
+ï»¿//==========================================================
+//	3å€¤ã®ä¸­å¤®å€¤
+//==========================================================
 #include <stdio.h>
 #include <stdlib.h>  // srand(),rand()
 #include <time.h>    // time()
-//  ŠÖ”ƒvƒƒgƒ^ƒCƒv
+//  é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—
 int MedianOfThree(int a, int b, int c);
 
 int main()
@@ -22,22 +22,22 @@ int MedianOfThree(int a, int b, int c)
 {
     if (a >= b) {
         if (b >= c) {
-            return b; //yAzyBzyFzyGz
+            return b; //ã€Aã€‘ã€Bã€‘ã€Fã€‘ã€Gã€‘
         }
         else if (a <= c) {
-            return a; //yDzyEzyHz
+            return a; //ã€Dã€‘ã€Eã€‘ã€Hã€‘
         }
         else {
-            return c; //yCz
+            return c; //ã€Cã€‘
         }
     }
     else if (a > c) {
-        return a; //yIz
+        return a; //ã€Iã€‘
     }
     else if (b > c) {
-        return c; //yJzyKz
+        return c; //ã€Jã€‘ã€Kã€‘
     }
     else {
-        return b; //yLzyMz
+        return b; //ã€Lã€‘ã€Mã€‘
     }
 }
