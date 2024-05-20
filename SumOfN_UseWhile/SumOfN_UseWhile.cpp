@@ -1,5 +1,5 @@
 ﻿//==========================================================
-//	1〜Nの総和　while版
+//	1～Nの総和　while版
 //==========================================================
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> // sscanf(),scanf(),printf()
@@ -26,7 +26,7 @@ int main(int argc,char *argv[])
 void calcSum(int N)
 {
 	int sum = SumOfN(N);
-	printf("1〜%dの総和は%d\n", N, sum);
+	printf("1～%dの総和は%d\n", N, sum);
 }
 
 
