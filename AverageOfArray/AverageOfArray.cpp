@@ -1,12 +1,12 @@
 ﻿//==========================================================
-//	配列の合計値
+//	配列の平均値
 //==========================================================
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> // printf()
 #include <stdlib.h>  // srand(),rand()
 #include <time.h>    // time()
 // 関数プロトタイプ
-int SumOfArray(int array[], int arraySize);
+double AverageOfArray(int array[], int arraySize);
 int randRange(int min, int max);
 
 int main()
@@ -31,20 +31,20 @@ int main()
         printf("%d\n", height[i]);
     }
 
-    int sum = SumOfArray(height, number);
-    printf("合計値は %d です\n", sum);
+    double average = AverageOfArray(height, number);
+    printf("平均値は %.2f です\n", average);
 
     free(height);
     return 0;
 }
 
-int SumOfArray(int array[], int arraySize)
+double AverageOfArray(int array[], int arraySize)
 {
     int sum = 0;
     for (int i = 0; i < arraySize; i++) {
         sum += array[i];
     }
-    return sum;
+    return (double)sum / arraySize;
 }
 
 int randRange(int min, int max)
@@ -52,4 +52,3 @@ int randRange(int min, int max)
     int wid = max - min + 1;
     return min + rand() % wid;
 }
-

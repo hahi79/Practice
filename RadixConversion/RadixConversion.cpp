@@ -1,13 +1,13 @@
-//==========================================================
-//	Šî”•ÏŠ·
+ï»¿//==========================================================
+//	åŸºæ•°å¤‰æ›
 //==========================================================
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> // printf()
 #include <stdlib.h>  // srand(),rand()
 #include <time.h>    // time()
-// ŠÖ”ƒvƒƒgƒ^ƒCƒv
+// é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—
 int card_convert(char* buff, int num, int radix);
-// ŠÖ”ƒ}ƒNƒ
+// é–¢æ•°ãƒã‚¯ãƒ­
 #define SWAP(type, x, y) do{ type tmp=x; x=y; y=tmp; }while(false)
 
 int main()
@@ -17,10 +17,10 @@ int main()
     char buff[BUFF_SIZE];
     do {
         int num = rand();
-        int radix = rand() % 34 + 2;  // radix=2`36
+        int radix = rand() % 34 + 2;  // radix=2ã€œ36
         card_convert(buff, num, radix);
 
-        printf("%d ‚ğŠî”%3d ‚Å•\¦‚·‚é‚Æ %s\n", num, radix, buff);
+        printf("%d ã‚’åŸºæ•°%3d ã§è¡¨ç¤ºã™ã‚‹ã¨ %s\n", num, radix, buff);
     }while (getchar() != ' ');
     return 0;
 }

@@ -1,11 +1,11 @@
-//==========================================================
-//	”z—ñ‚Ì”½“]
+ï»¿//==========================================================
+//	é…åˆ—ã®åè»¢
 //==========================================================
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> // printf()
 #include <stdlib.h>  // srand(),rand()
 #include <time.h>    // time()
-// ŠÖ”ƒvƒƒgƒ^ƒCƒv
+// é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—
 void ReverseArray(int array[], int arraySize);
 #define SWAP(type,a,b)  do{type tmp=a; a=b; b=tmp;}while(false)
 
@@ -15,13 +15,13 @@ int main()
 	srand(time(NULL));
 
 	do {
-		printf("—v‘f”:");
+		printf("è¦ç´ æ•°:");
 		scanf("%d", &nx);
 	} while (nx <= 0);
 
 	int* x = (int*)calloc(nx, sizeof(int));
 	if (x == nullptr) {
-		printf("calloc()¸”s");
+		printf("calloc()å¤±æ•—");
 		exit(1);
 	}
 
@@ -32,7 +32,7 @@ int main()
 
 	ReverseArray(x,nx);
 
-	printf("—v‘f‚Ì•À‚Ñ‚ğ”½“]‚µ‚Ü‚µ‚½\n");
+	printf("è¦ç´ ã®ä¸¦ã³ã‚’åè»¢ã—ã¾ã—ãŸ\n");
 	for (int i = 0; i < nx; i++) {
 		printf("x[%d] = %d\n", i, x[i]);
 	}

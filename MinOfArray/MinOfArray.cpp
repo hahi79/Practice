@@ -1,11 +1,11 @@
-//==========================================================
-//	”z—ñ‚ÌÅ¬’l
+ï»¿//==========================================================
+//	é…åˆ—ã®æœ€å°å€¤
 //==========================================================
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> // printf()
 #include <stdlib.h>  // srand(),rand()
 #include <time.h>    // time()
-// ŠÖ”ƒvƒƒgƒ^ƒCƒv
+// é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—
 int MinOfArray(int array[], int arraySize);
 int randRange(int min, int max);
 
@@ -15,24 +15,24 @@ int main()
 	srand(time(NULL));
 
 	do {
-		printf("l”:");
+		printf("äººæ•°:");
 		scanf("%d", &number);
 	} while (number <= 0);
 
 	int* height = (int*)calloc(number, sizeof(int));
 	if (height == nullptr) {
-		printf("calloc()¸”s");
+		printf("calloc()å¤±æ•—");
 		exit(1);
 	}
 
-	printf("%dl‚Ìg’·‚ğ“ü—Í‚µ‚Ü‚·\n", number);
+	printf("%däººã®èº«é•·ã‚’å…¥åŠ›ã—ã¾ã™\n", number);
 	for (int i = 0; i < number; i++) {
 		height[i] = randRange(140, 190);
 		printf("%d\n", height[i]);
 	}
 
 	int min = MinOfArray(height, number);
-	printf("Å¬’l‚Í %d ‚Å‚·\n", min);
+	printf("æœ€å°å€¤ã¯ %d ã§ã™\n", min);
 
 	free(height);
 	return 0;
