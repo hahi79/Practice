@@ -6,7 +6,7 @@
 #include <stdlib.h>  // srand(),rand()
 #include <time.h>    // time()
 // 関数プロトタイプ
-int MaxOfArray(int array[], int arraySize);
+int MaxOfArray(const int array[], int arraySize);
 int randRange(int min, int max);
 
 int main()
@@ -38,7 +38,7 @@ int main()
 	return 0;
 }
 
-int MaxOfArray(int array[], int arraySize)
+int MaxOfArray(const int array[], int arraySize)
 {
 	int max = array[0];
 	for (int i = 1; i < arraySize; i++) {
