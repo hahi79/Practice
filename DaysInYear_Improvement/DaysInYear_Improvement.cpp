@@ -5,6 +5,7 @@
 #include <stdio.h>　// printf()
 #include <stdlib.h> // srand(),rand()
 #include <time.h>   // time()
+#include <stdarg.h>
 // 関数プロトタイプ
 int DaysInYear(int year, int month, int day);
 bool isLeapYear(int year);
