@@ -1,5 +1,5 @@
 ﻿//==========================================================
-//	構造体サンプル 分布グラフ
+//	構造体サンプル Date
 //==========================================================
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> // printf()
@@ -107,7 +107,7 @@ Date getDateInYear(int year, int days)
 {
 	while (days <= 0) {
 		year--;
-		days += isLeapYear(year) ? 364 : 365;
+		days += isLeapYear(year) ? 366 : 365;
 	}
 
 	int idx = isLeapYear(year) ? 1 : 0;
