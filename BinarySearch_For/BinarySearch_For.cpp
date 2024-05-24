@@ -53,7 +53,7 @@ int BinarySearch(int data[], int dataSize, int key)
 {
 	int left = 0;
 	int right = dataSize - 1;
-	for (; left < right; ) {
+	for (; left <= right; ) {
 		int mid = left + (right - left) / 2;
 		if (key == data[mid]) {
 			return mid;
