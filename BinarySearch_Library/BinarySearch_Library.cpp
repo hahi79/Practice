@@ -3,7 +3,7 @@
 //==========================================================
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> // printf()
-#include <stdlib.h> // srand(),rand()
+#include <stdlib.h> // srand(),rand(),bsearch()
 #include <time.h>
 // 関数プロトタイプ
 int CompareInt(const int* a, const int* b);
