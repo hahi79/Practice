@@ -22,7 +22,7 @@ int main()
 	ChainHash hash;
 	ChainHashResult result = Initialize(&hash, HASH_SIZE);
 	if(result!= SUCCESS)	{
-		printf("初期化失敗!");
+		printf("初期化失敗!\n");
 		exit(1);
 	}
 	setup(&hash);
@@ -36,7 +36,7 @@ int main()
 			result=Add(&hash,&x);
 			if (result != SUCCESS) {
 				const char *cause = result == ADD_ALREADY_EXIST ? "登録済" : "メモリ不足";
-				printf("追加に失敗しました(%s)", cause);
+				printf("追加に失敗しました(%s)\n", cause);
 			}
 			break;
 		case DELETE:
