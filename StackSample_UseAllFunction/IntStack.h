@@ -18,6 +18,8 @@ typedef enum {
 	PEEK_NO_DATA=4,
 } IntStackResult;
 
+#define SEARCH_NOT_FOUND (-1)
+
 // スタックの初期化
 IntStackResult Initialize(IntStack* s, int max);
 // スタックへデータをプッシュ

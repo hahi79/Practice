@@ -113,7 +113,7 @@ int SearchA(const IntStackTwin* s, int x)
 			return i;
 		}
 	}
-	return -1;
+	return SEARCH_NOT_FOUND; // -1
 }
 int SearchB(const IntStackTwin* s, int x)
 {
@@ -122,7 +122,7 @@ int SearchB(const IntStackTwin* s, int x)
 			return i;
 		}
 	}
-	return - 1;
+	return SEARCH_NOT_FOUND; // -1
 }
 void Print(const IntStackTwin* s)
 {

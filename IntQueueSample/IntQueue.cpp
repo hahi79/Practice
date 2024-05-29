@@ -84,7 +84,7 @@ int Search(const IntQueue* q,int x)
 			return idx;
 		}
 	}
-	return -1;
+	return SEARCH_NOT_FOUND;  // -1
 }
 void Print(const IntQueue* q)
 {

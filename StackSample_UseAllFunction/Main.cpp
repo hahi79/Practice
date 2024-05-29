@@ -80,7 +80,7 @@ int main()
 			printf("検索データ:");
 			scanf("%d", &x);
 			int idx = Search(&s, x);
-			if (idx < 0) {
+			if (idx == SEARCH_NOT_FOUND) {
 				puts("データは発見できません");
 			}
 			else {

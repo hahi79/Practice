@@ -69,7 +69,7 @@ int Search(const IntStack* s, int x)
 			return i;
 		}
 	}
-	return -1;
+	return SEARCH_NOT_FOUND; // -1
 }
 void Print(const IntStack* s)
 {

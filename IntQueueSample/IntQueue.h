@@ -20,6 +20,8 @@ typedef enum {
 	PEEK_NO_DATA=4,
 } IntQueueResult;
 
+#define SEARCH_NOT_FOUND (-1)
+
 // キューの初期化
 IntQueueResult Initialize(IntQueue* q, int max);
 // キューにデータをエンキューする
