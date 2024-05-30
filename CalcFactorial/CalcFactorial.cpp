@@ -3,10 +3,9 @@
 //==========================================================
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>   // printf(),scanf()
-#include <stdint.h>  // uint64_t
+
 // 関数プロトタイプ
 int Factorial(int n);
-
 
 int main()
 {
