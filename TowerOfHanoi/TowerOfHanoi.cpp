@@ -26,6 +26,7 @@ int main()
 
 		move(n, A, C);
 	}
+	return 0;
 }
 
 void move(int no, POS from, POS to)
