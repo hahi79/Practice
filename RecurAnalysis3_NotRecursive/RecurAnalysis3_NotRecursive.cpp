@@ -37,8 +37,9 @@ void recur3(int n)
 
 void recur3_notRecursive(int n)
 {
+    const int STACK_SIZE = 100;
     IntStack stk;
-    Initialize(&stk, 100);
+    Initialize(&stk, STACK_SIZE);
 
     int phase = 0;
     while (true) {
