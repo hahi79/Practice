@@ -11,7 +11,7 @@ void indicate(int i, int j, bool isSwap, int array[], int arraySize);
 int getRandRange(int min, int max);
 void dumpArray(const int array[], int arraySize);
 // 交換マクロ
-#define swap(type,a,b)	do{type tmp=a; a=b; b=tmp; swapCount++;}while(false)
+#define swap(type,a,b)	do{type tmp=a; a=b; b=tmp; }while(false)
 
 int compCount;  // 比較回数
 int swapCount;  // 交換回数 
@@ -59,6 +59,7 @@ void BubbleSort(int array[], int arraySize)
 			indicate(i, j, isSwap,array, arraySize);
 			if (isSwap) {
 				swap(int, array[j - 1], array[j]);
+				swapCount++;
 			}
 		}
 	}
