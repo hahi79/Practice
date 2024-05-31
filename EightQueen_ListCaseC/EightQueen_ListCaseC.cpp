@@ -24,7 +24,7 @@ int main()
 
 void set(int column)
 {
-	for (int line = 0; line < 8; line++) {
+	for (int line = 0; line < FIELD_SIZE; line++) {
 		if (flag[line] == false) {
 			pos[column] = line;
 			if (column == FIELD_SIZE - 1) {

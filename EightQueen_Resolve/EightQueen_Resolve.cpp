@@ -52,7 +52,7 @@ int main()
 
 void set(int column)
 {
-	for (int line = 0; line < 8; line++) {
+	for (int line = 0; line < FIELD_SIZE; line++) {
 		if (!flag[line] && !flag2[column+line] && !flag3[(FIELD_SIZE - 1) - column + line]) {
 			pos[column] = line;
 			if (column == FIELD_SIZE - 1) {
