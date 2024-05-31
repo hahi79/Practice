@@ -11,6 +11,7 @@ const int FIELD_SIZE = 8;
 // 各列の王妃の位置
 int pos[FIELD_SIZE];
 // 各行に王妃が配置済か?
+bool flag[FIELD_SIZE];
 
 int main()
 {
