@@ -43,7 +43,7 @@ int main()
 		printf("昇順にソートしました\n");
 		dumpArray(array, arraySize);
 		printf("比較は %d 回でした\n", compCount);
-		printf("交換は %d 回てした\n", swapCount);
+		printf("交換は %d 回でした\n", swapCount);
 
 		free(array);
 	}
