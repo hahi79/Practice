@@ -65,9 +65,10 @@ void QuickSort(int array[], int left,int right)
 
 int Sort3Element(int array[], int a, int b, int c)
 {
-	if (array[b] < array[a]) swap(int, array[b], array[a]);
-	if (array[c] < array[b]) swap(int, array[c], array[b]);
-	if (array[b] < array[a]) swap(int, array[b], array[a]);
+	// array[a],array[b],array[c]をバブルソートしている
+	if (array[a] > array[b]) swap(int, array[a], array[b]);
+	if (array[b] > array[c]) swap(int, array[b], array[c]);
+	if (array[a] > array[b]) swap(int, array[a], array[b]);
 	return b;
 }
 
