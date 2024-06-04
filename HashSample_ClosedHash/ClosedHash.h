@@ -14,7 +14,7 @@ typedef enum {
 typedef struct {
 	Member data;   // データ
 	Status stat;   // 要素の状態
-} Bucket;;
+} Bucket;
 
 typedef struct {
 	int     size;        // ハッシュ表配列の大きさ
