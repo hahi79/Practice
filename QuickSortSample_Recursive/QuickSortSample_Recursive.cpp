@@ -45,7 +45,7 @@ int main()
 void QuickSort(int array[], int left,int right)
 {
 	int pl = left;
-	int pr = right;;
+	int pr = right;
 	int x = array[(left+right) / 2];
 
 	do {
