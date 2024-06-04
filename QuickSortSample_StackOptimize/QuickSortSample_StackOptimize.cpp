@@ -5,7 +5,6 @@
 #include <stdio.h>   // printf(),scanf()
 #include <stdlib.h>  // srand(),rand()
 #include <time.h>    // time()
-#include <string.h>  // memcpy()
 #include "IntStack.h"
 // 関数プロトタイプ
 void QuickSort_Recursive(int array[], int left, int right);
@@ -35,9 +34,8 @@ int main()
 			exit(1);
 		}
 		for (int i = 0; i < arraySize; i++) {
-			array[i] = getRandRange(1, 100);
+			array[i] = array2[i] = getRandRange(1, 100);
 		}
-		memcpy(array2, array, sizeof(int) * arraySize);
 		dumpArray(array, arraySize);
 		QuickSort_Recursive(array,0, arraySize-1);
 		QuickSort_NotRecursive(array2, 0, arraySize - 1);
