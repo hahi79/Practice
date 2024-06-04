@@ -48,7 +48,7 @@ void QuickSort(int array[], int left,int right)
 {
 	int size = right - left + 1;
 	if (size <= 9) {
-		//printf("InsertionSort(%d)\n", size);
+		printf("InsertionSort(%d)\n", size);
 		InsertionSort(&array[left], size);
 		return;
 	}
