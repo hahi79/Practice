@@ -7,7 +7,7 @@
 #include <time.h>    // time()
 // 関数プロトタイプ
 void InsertionSort(int array[], int arraySize);
-int BinarySearch(int idx, int value, int array[]);
+int SearchInsertIdx(int idx, int value, int array[]);
 int getRandRange(int min, int max);
 void dumpArray(const int array[], int arraySize);
 
@@ -45,16 +45,15 @@ void InsertionSort(int array[], int arraySize)
 {
 	for (int i = 1; i < arraySize; i++) {
 		int tmp = array[i];
-		int insert = BinarySearch(i, tmp, array);
-		int j;
-		for (j = i; j > insert; j--) {
+		int insert = SearchInsertIdx(i, tmp, array);
+		for (int j = i; j > insert; j--) {
 			array[j] = array[j - 1];
 		}
 		array[insert] = tmp;
 	}
 }
 
-int BinarySearch(int idx, int value, int array[])
+int SearchInsertIdx(int idx, int value, int array[])
 {
 	int left = 0;
 	int right = idx - 1;
