@@ -5,7 +5,6 @@
 #include <stdio.h>   // printf(),scanf()
 #include <stdlib.h>  // srand(),rand()
 #include <time.h>    // time()
-#include <string.h>  // memcpy()
 // 関数プロトタイプ
 void ShellSort(int array[], int arraySize);
 void ShellSort_Rev2(int array[], int arraySize);
@@ -20,7 +19,7 @@ int main()
 	srand(time(NULL));
 	int arraySize;
 	int* array;
-	int* arrayBuf;
+	int* array2;
 
 	while (true) {
 		do {
@@ -29,28 +28,26 @@ int main()
 		} while (arraySize <= 2);
 
 		array = (int*)calloc(arraySize, sizeof(int));
-		arrayBuf= (int*)calloc(arraySize, sizeof(int));
-		if (array == nullptr || arrayBuf==nullptr) {
+		array2= (int*)calloc(arraySize, sizeof(int));
+		if (array == nullptr || array2==nullptr) {
 			printf("calloc()失敗\n");
 			exit(1);
 		}
 		for (int i = 0; i < arraySize; i++) {
-			array[i] = getRandRange(1, 1000);
+			array[i] = array2[i] = getRandRange(1, 1000);
 		}
-		memcpy(arrayBuf, array, sizeof(int) * arraySize);
-		dumpArray(arrayBuf, arraySize);
+		dumpArray(array, arraySize);
 		moveCount1 = 0;
 		moveCount2 = 0;
-		ShellSort(arrayBuf, arraySize);
-		memcpy(arrayBuf, array, sizeof(int) * arraySize);
-		ShellSort_Rev2(arrayBuf, arraySize);
+		ShellSort(array, arraySize);
+		ShellSort_Rev2(array2, arraySize);
 		printf("昇順にソートしました\n");
-		dumpArray(arrayBuf, arraySize);
+		dumpArray(array2, arraySize);
 		printf("移動回数1は%d回\n", moveCount1);
 		printf("移動回数2は%d回\n", moveCount2);
 
+		free(array2);
 		free(array);
-		free(arrayBuf);
 	}
 	return 0;
 }
