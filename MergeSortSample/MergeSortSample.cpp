@@ -80,7 +80,7 @@ void __mergeSort(int array[], int left, int right)
 		// 配列b : array[center+1～right]
 		// aとbを配列c ; array[left～right] へマージする
 		while (pa <= center && pb <= right) {
-			array[pc++] = buff[pa] < array[pb] ? buff[pa++] : array[pb++];
+			array[pc++] = buff[pa] <= array[pb] ? buff[pa++] : array[pb++];
 		}
 		while (pa <= center) {
 			array[pc++] = buff[pa++];
