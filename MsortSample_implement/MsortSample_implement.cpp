@@ -14,8 +14,6 @@ void* getAdrs(void* base, size_t size, int idx);
 int CompareInt(const int* a, const int* b);
 void dumpArray(const int array[], int arraySize);
 int getRandRange(int min, int max);
-// 交換マクロ
-#define swap(type,a,b)   do{ type tmp=a; a=b; b=tmp; }while(false)
 
 int main()
 {
