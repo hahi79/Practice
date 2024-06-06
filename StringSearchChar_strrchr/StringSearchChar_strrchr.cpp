@@ -1,11 +1,13 @@
 ﻿//=========================================================
-//	文字列から文字検索
+//	文字列から文字検索 strrchr互換
 //=========================================================
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> // printf(),scanf()
 
+const int NOT_FOUND = -1;
+
 // 関数プロトタイプ
-const char *str_chr(const char* str,int ch);
+const char *str_rchr(const char* str,int ch);
 
 int main()
 {
@@ -19,29 +21,30 @@ int main()
 		scanf("%s", tmp);
 		ch = tmp[0];
 
-		const char *p = str_chr(str, ch);
-		if (p==nullptr) {
+		const char*p = str_rchr(str, ch);
+		if (p == nullptr) {
 			printf("文字'%c'は文字列中に存在しません\n", ch);
 		}
 		else {
-			printf("文字'%c'は%d文字目に存在します\n", ch, p-str+1);
+			printf("文字'%c'は%d文字目に存在します\n", ch, (p-str)+1);
 		}
 		putchar('\n');
 	}
 	return 0;
 }
 
-const char *str_chr(const char* str,int c)
+const char* str_rchr(const char* str, int c)
 {
+	const char* hit = nullptr;
 	c = (char)c;
 	while (true) {
 		if (*str == c) {
-			break;
+			hit = str;
 		}
 		if (*str == '\0') {
-			return nullptr;
+			break;
 		}
 		str++;
 	}
-	return str;
+	return hit;
 }

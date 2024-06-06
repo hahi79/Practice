@@ -26,7 +26,7 @@ int main()
 			printf("文字'%c'は文字列中に存在しません\n", ch);
 		}
 		else {
-			printf("文字'%c'は%d文字目に存在します\n", ch, idx);
+			printf("文字'%c'は%d文字目に存在します\n", ch, idx+1);
 		}
 		putchar('\n');
 	}
