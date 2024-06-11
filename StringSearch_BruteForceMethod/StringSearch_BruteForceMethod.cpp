@@ -5,7 +5,7 @@
 #include <stdio.h> // printf(),scanf()
 
 // 関数プロトタイプ
-int bf_match(const char* string, const char* pattern);
+int bf_match(const char* txt, const char* pat);
 
 const int NOT_FOUND = -1;
 
