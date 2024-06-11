@@ -18,7 +18,7 @@ int main()
 	char str2[STRING_SIZE];
 
 	while (true) {
-		puts("KMP法");
+		puts("Boyer-Moore法");
 		printf("テキスト:");
 		scanf("%s", str1);
 
