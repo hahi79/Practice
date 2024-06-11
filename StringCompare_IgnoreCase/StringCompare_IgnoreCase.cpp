@@ -1,11 +1,11 @@
-//=========================================================
-//	•¶š—ñ”äŠr IgnoreCase
+ï»¿//=========================================================
+//	æ–‡å­—åˆ—æ¯”è¼ƒ IgnoreCase
 //=========================================================
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> // printf(),scanf()
 #include <ctype.h> // toupper(), tolower()
 
-// ŠÖ”ƒvƒƒgƒ^ƒCƒv
+// é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—
 int str_cmp_IgnoreCase(const char* str1, const char* str2);
 int str_ncmp_IgnoreCase(const char* str1, const char* str2, size_t n);
 
@@ -16,18 +16,18 @@ int main()
 	char str[256];
 	int result;
 
-	puts("‘å•¶š/¬•¶š‚ğ‹æ•Ê‚µ‚È‚¢”äŠr");
+	puts("å¤§æ–‡å­—/å°æ–‡å­—ã‚’åŒºåˆ¥ã—ãªã„æ¯”è¼ƒ");
 	while (true) {
-		printf("\"%s\"‚Æ”äŠr‚µ‚Ü‚·\n", fixStr);
-		printf("•¶š—ñ:");
+		printf("\"%s\"ã¨æ¯”è¼ƒã—ã¾ã™\n", fixStr);
+		printf("æ–‡å­—åˆ—:");
 		scanf("%s", str);
 
 		result = str_cmp_IgnoreCase(fixStr, str);
 		printf("str_cmp_IgnoreCase(\"%s\",\"%s\") = %d\n", fixStr, str,result);
 		putchar('\n');
 
-		printf("\"%s\"‚Ìæ“ª %d•¶š‚Æ”äŠr‚µ‚Ü‚·\n", fixStr, COMPARE_SIZE);
-		printf("•¶š—ñ:");
+		printf("\"%s\"ã®å…ˆé ­ %dæ–‡å­—ã¨æ¯”è¼ƒã—ã¾ã™\n", fixStr, COMPARE_SIZE);
+		printf("æ–‡å­—åˆ—:");
 		scanf("%s", str);
 
 		result = str_ncmp_IgnoreCase(fixStr, str, COMPARE_SIZE);

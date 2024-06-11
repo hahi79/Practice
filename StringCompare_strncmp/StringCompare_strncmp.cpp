@@ -1,10 +1,10 @@
-//=========================================================
-//	•¶š—ñ”äŠr strncmpŒİŠ·
+ï»¿//=========================================================
+//	æ–‡å­—åˆ—æ¯”è¼ƒ strncmpäº’æ›
 //=========================================================
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> // printf(),scanf()
 
-// ŠÖ”ƒvƒƒgƒ^ƒCƒv
+// é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—
 int str_ncmp(const char* str1,const char *str2,size_t n);
 
 int main()
@@ -14,8 +14,8 @@ int main()
 	char str[256];
 
 	while (true) {
-		printf("\"%s\"‚Ìæ“ª%d•¶š‚Æ”äŠr‚µ‚Ü‚·\n",fixStr,COMPARE_SIZE);
-		printf("•¶š—ñ:");
+		printf("\"%s\"ã®å…ˆé ­%dæ–‡å­—ã¨æ¯”è¼ƒã—ã¾ã™\n",fixStr,COMPARE_SIZE);
+		printf("æ–‡å­—åˆ—:");
 		scanf("%s", str);
 
 		int result = str_ncmp(fixStr, str, COMPARE_SIZE);

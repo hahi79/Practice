@@ -1,10 +1,10 @@
-//=========================================================
-//	•¶š—ñ’Tõ@—Í‚Ü‚©‚¹•û
+ï»¿//=========================================================
+//	æ–‡å­—åˆ—æ¢ç´¢ã€€åŠ›ã¾ã‹ã›æ–¹
 //=========================================================
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> // printf(),scanf()
 
-// ŠÖ”ƒvƒƒgƒ^ƒCƒv
+// é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—
 int bf_match(const char* string, const char* pattern);
 
 const int NOT_FOUND = -1;
@@ -16,19 +16,19 @@ int main()
 	char str2[STRING_SIZE];
 
 	while (true) {
-		puts("—Í‚Ü‚©‚¹•û");
-		printf("ƒeƒLƒXƒg:");
+		puts("åŠ›ã¾ã‹ã›æ–¹");
+		printf("ãƒ†ã‚­ã‚¹ãƒˆ:");
 		scanf("%s", str1);
 
-		printf("ƒpƒ^[ƒ“:");
+		printf("ãƒ‘ã‚¿ãƒ¼ãƒ³:");
 		scanf("%s", str2);
 
 		int idx = bf_match(str1, str2);
 		if (idx == NOT_FOUND) {
-			puts("ƒeƒLƒXƒg’†‚Éƒpƒ^[ƒ“‚Í‘¶İ‚µ‚Ü‚¹‚ñ");
+			puts("ãƒ†ã‚­ã‚¹ãƒˆä¸­ã«ãƒ‘ã‚¿ãƒ¼ãƒ³ã¯å­˜åœ¨ã—ã¾ã›ã‚“");
 		}
 		else {
-			printf("%d•¶š–Ú‚Éƒ}ƒbƒ`‚µ‚Ü‚µ‚½\n", idx + 1);
+			printf("%dæ–‡å­—ç›®ã«ãƒãƒƒãƒã—ã¾ã—ãŸ\n", idx + 1);
 		}
 		putchar('\n');
 	}
