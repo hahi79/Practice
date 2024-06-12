@@ -25,7 +25,10 @@ int main()
 		}
 		else {
 			int idx = p - str1;
-			printf("%d文字目にマッチしました\n", idx+1);
+			printf("%d文字目にマッチしました\n", idx + 1);
+			printf("%s\n", str1);
+			printf("%*s|\n", idx, "");
+			printf("%*s%s\n", idx, "", str2);
 		}
 		putchar('\n');
 	}
