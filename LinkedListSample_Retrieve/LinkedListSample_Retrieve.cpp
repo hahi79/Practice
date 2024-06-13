@@ -95,7 +95,7 @@ int main()
 				PrintLnMember(&node->data);
 			}
 			else {
-				printf("先頭から何個後ろデータはありません", no);
+				printf("先頭から%d個後ろデータはありません", no);
 			}
 			break;
 		}
