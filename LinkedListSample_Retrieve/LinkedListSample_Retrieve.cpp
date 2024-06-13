@@ -123,7 +123,7 @@ Menu SelectMenu()
 		"N番目のデータ表示",
 	};
 	int menuStrSize = sizeof(menuStr) / sizeof(menuStr[0]);
-
+	
 	do {
 		for (int i = 0; i < menuStrSize; i++) {
 			printf("(%2d)%-18.18s  ", i + 1, menuStr[i]);
