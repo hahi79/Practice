@@ -5,7 +5,7 @@
 #include "member.h"
 #include "CircleDoubleLinkedList.h"
 #include <stdio.h> // printf(),scanf()
-	
+		
 typedef enum {
 	TERMINATE,
 	INSERT_FRONT,
@@ -99,7 +99,7 @@ int main()
 	Terminate(&list);
 	return 0;
 }
-
+	
 Menu SelectMenu()
 {
 	int ch;

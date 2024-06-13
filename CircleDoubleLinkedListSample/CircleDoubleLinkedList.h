@@ -9,22 +9,22 @@
 //=========================================================
 #ifndef __CircleDoubleLinkedList
 #define __CircleDoubleLinkedList
-
+	
 #include "Member.h"
-
+	
 /*--- ノード ---*/
 typedef struct __node {
 	Member        data;    // データ
 	struct __node* prev;   // 先行ポインタ（先行ノードへのポインタ）
 	struct __node* next;   // 後続ポインタ（後続ノードへのポインタ）
 } DblNode;
-
+	
 /*--- 循環・重連結リスト ---*/
 typedef struct {
 	DblNode* head;      // 先頭ポインタ（ダミーノードへのポインタ）
 	DblNode* current;   // 着目ポインタ（着目ノードへのポインタ）
 } DblList;
-
+	
 // リストを初期化 
 void Initialize(DblList* list);
 // 着目ノードのデータを表示 
@@ -59,7 +59,5 @@ void RemoveCurrent(DblList* list);
 void Clear(DblList* list);
 // 循環・重連結リストの後始末
 void Terminate(DblList* list);
-
-
-
+	
 #endif // __CircleDoubleLinkedList

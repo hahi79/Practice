@@ -10,12 +10,12 @@
 #include "CircleDoubleLinkedList.h"
 #include <stdio.h>  // printf()
 #include <stdlib.h> // exit()
-
+	
 // 関数プロトタイプ
 static DblNode* allocDblNode();
 static void setDblNode(DblNode* node, const Member* x, const DblNode* prev, const DblNode* next);
 static bool isEmpty(const DblList* list);
-
+	
 // 初期化
 void Initialize(DblList* list)
 {
