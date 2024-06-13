@@ -87,15 +87,15 @@ int main()
 			Clear(&list);
 			break;
 		case RETRIEVE:
-			printf("N番目(0～):");
+			printf("先頭から何個後ろ:");
 			scanf("%d", &no);
 			node=Retrieve(&list, no);
 			if (node != nullptr) {
-				printf("%d番目のデータは\n",no);
+				printf("先頭から%d個後ろのデータは\n",no);
 				PrintLnMember(&node->data);
 			}
 			else {
-				printf("%d番目データはありません", no);
+				printf("先頭から何個後ろデータはありません", no);
 			}
 			break;
 		}
