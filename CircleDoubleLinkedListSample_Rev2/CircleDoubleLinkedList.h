@@ -12,18 +12,31 @@
 	
 #include "Member.h"
 	
-/*--- ノード ---*/
+#if true
+// ノード 
+struct DblNode {
+	Member   data;   // データ
+	DblNode* prev;   // 先行ポインタ（先行ノードへのポインタ）
+	DblNode* next;   // 後続ポインタ（後続ノードへのポインタ）
+};
+// 循環・重連結リスト
+struct DblList {
+	DblNode* head;      // 先頭ポインタ（ダミーノードへのポインタ）
+	DblNode* current;   // 着目ポインタ（着目ノードへのポインタ）
+};
+#else
+// ノード 
 typedef struct __node {
 	Member        data;    // データ
 	struct __node* prev;   // 先行ポインタ（先行ノードへのポインタ）
 	struct __node* next;   // 後続ポインタ（後続ノードへのポインタ）
 } DblNode;
-	
-/*--- 循環・重連結リスト ---*/
+// 循環・重連結リスト
 typedef struct {
 	DblNode* head;      // 先頭ポインタ（ダミーノードへのポインタ）
 	DblNode* current;   // 着目ポインタ（着目ノードへのポインタ）
 } DblList;
+#endif	
 	
 // リストを初期化 
 void Initialize(DblList* list);
