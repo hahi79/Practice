@@ -9,7 +9,7 @@
 void ReverseArray(int array[], int arraySize);
 void dumpArray(int array[], int arraySize);
 // 関数マクロ 
-#define SWAP(type, x, y) do{type tmp=x; x=y; y=tmp; }while(false);
+#define SWAP(type, x, y) do{type tmp=x; x=y; y=tmp; }while(false)
 
 int main()
 {
