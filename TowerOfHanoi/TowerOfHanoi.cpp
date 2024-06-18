@@ -10,8 +10,6 @@ typedef enum {
 	C=3,
 } POS;
 
-const char* PosName[] = { "","A","B","C" };
-
 // 関数プロトタイプ
 void move(int no, POS from, POS to);
 
@@ -35,7 +33,7 @@ void move(int no, POS from, POS to)
 	if (no > 1) {
 		move(no - 1, from, tmp);
 	}
-	printf("円盤[%d]を %s軸から %s軸へ移動\n", no, PosName[from], PosName[to]);
+	printf("円盤[%d]を %d軸から %d軸へ移動\n", no, from, to);
 	if (no > 1) {
 		move(no - 1, tmp, to);
 	}
