@@ -1,0 +1,124 @@
+﻿//==========================================================
+//	チェインハッシュ
+//==========================================================
+#include "ChainHash.h"
+#include <stdio.h>   // printf(),putchar()
+#include <stdlib.h>  // calloc(),free()
+#include <string.h>  // strcmp()
+
+// 関数プロトタイプ
+static int hash(const char *key, int size);
+static void setNode(Node* n, const Member* x, Node* next);
+
+
+ChainHashResult Initialize(ChainHash* h, int size)
+{
+	h->table =(Node**)calloc(size, sizeof(Node*));
+	if (h->table == nullptr) {
+		h->size = 0;
+		return INITIALIZE_FAIL;
+	}
+	h->size = size;
+	for (int i = 0; i < size; i++) {
+		h->table[i] = nullptr;
+	}
+	return SUCCESS;
+}
+
+Node* Search(const ChainHash* h, const Member* x)
+{
+	int key = hash(x->name, h->size);
+	Node* p = h->table[key];
+	while (p != nullptr) {
+		if (p->data.no == x->no) {
+			return p;
+		}
+		p = p->next;
+	}
+	return nullptr;
+}
+ChainHashResult Add(ChainHash* h, const Member* x)
+{
+	int key = hash(x->name, h->size);
+	Node* p = h->table[key];
+	// 既に登録済?
+	while (p != nullptr) {
+		if (strcmp(p->data.name, x->name) == 0) {
+			return ADD_ALREADY_EXIST;
+		}
+		p = p->next;
+	}
+	Node *temp = (Node*)calloc(1, sizeof(Node));
+	if (temp == nullptr) {
+		return ADD_CALLOC_FAIL;
+	}
+	setNode(temp, x, h->table[key]);
+	h->table[key] = temp;
+	return SUCCESS;
+}
+
+ChainHashResult Remove(ChainHash* h, const Member* x)
+{
+	int key = hash(x->name, h->size);
+	Node* p = h->table[key];
+	Node** pp =&h->table[key];
+	while (p != nullptr) {
+		if (p->data.no == x->no) {
+			*pp = p->next;
+			free(p);
+			return SUCCESS;
+		}
+		pp=&p-> next;
+		p = p->next;
+	}
+	return REMOVE_NOT_FOUND;
+}
+
+void Dump(const ChainHash* h)
+{
+	for (int i = 0; i < h->size; i++) {
+		Node* p = h->table[i];
+		printf("%02d ", i);
+		while (p != nullptr) {
+			printf("->%d(%s) ", p->data.no, p->data.name);
+			p = p->next;
+		}
+		putchar('\n');
+	}
+}
+
+void Clear(ChainHash* h)
+{
+	for (int i = 0; i < h->size; i++) {
+		Node* p = h->table[i];
+		while (p != nullptr) {
+			Node* next = p->next;
+			free(p);
+			p = next;
+		}
+		h->table[i] = nullptr;
+	}
+}
+void Terminate(ChainHash* h)
+{
+	Clear(h);
+	free(h->table);
+	h->size = 0;
+}
+
+static int hash(const char *key, int size)
+{
+	const unsigned char* name =(const unsigned char*)key;
+	unsigned int value = 0;
+	while (*name != '\0') {
+		unsigned int c =(*name++);
+		value = value * 33 + c;
+	}
+	// hash値がマイナスになるとマズい
+	return value % size;
+}
+static void setNode(Node* n, const Member* x, Node* next)
+{
+	n->data = *x;
+	n->next = next;
+}
