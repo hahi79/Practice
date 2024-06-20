@@ -7,7 +7,7 @@
 #include <string.h>  // strcmp()
 
 // 関数プロトタイプ
-static int hash(const char *key, int size);
+static int hash(const Member *x, int size);
 static void setNode(Node* n, const Member* x, Node* next);
 
 
@@ -27,10 +27,10 @@ ChainHashResult Initialize(ChainHash* h, int size)
 
 Node* Search(const ChainHash* h, const Member* x)
 {
-	int key = hash(x->name, h->size);
+	int key = hash(x, h->size);
 	Node* p = h->table[key];
 	while (p != nullptr) {
-		if (p->data.no == x->no) {
+		if (strcmp(p->data.name, x->name) == 0) {
 			return p;
 		}
 		p = p->next;
@@ -39,7 +39,7 @@ Node* Search(const ChainHash* h, const Member* x)
 }
 ChainHashResult Add(ChainHash* h, const Member* x)
 {
-	int key = hash(x->name, h->size);
+	int key = hash(x, h->size);
 	Node* p = h->table[key];
 	// 既に登録済?
 	while (p != nullptr) {
@@ -59,7 +59,7 @@ ChainHashResult Add(ChainHash* h, const Member* x)
 
 ChainHashResult Remove(ChainHash* h, const Member* x)
 {
-	int key = hash(x->name, h->size);
+	int key = hash(x, h->size);
 	Node* p = h->table[key];
 	Node** pp =&h->table[key];
 	while (p != nullptr) {
@@ -106,9 +106,9 @@ void Terminate(ChainHash* h)
 	h->size = 0;
 }
 
-static int hash(const char *key, int size)
+static int hash(const Member *x, int size)
 {
-	const unsigned char* name =(const unsigned char*)key;
+	const unsigned char* name =(const unsigned char*)x->name;
 	unsigned int value = 0;
 	while (*name != '\0') {
 		unsigned int c =(*name++);
