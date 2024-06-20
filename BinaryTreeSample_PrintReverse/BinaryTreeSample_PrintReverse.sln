@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BinaryTreeSample_PrintReverse", "BinaryTreeSample_PrintReverse.vcxproj", "{BCAC834F-9504-42DC-A68F-785F5E73699F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCAC834F-9504-42DC-A68F-785F5E73699F}.Debug|x64.ActiveCfg = Debug|x64
+		{BCAC834F-9504-42DC-A68F-785F5E73699F}.Debug|x64.Build.0 = Debug|x64
+		{BCAC834F-9504-42DC-A68F-785F5E73699F}.Debug|x86.ActiveCfg = Debug|Win32
+		{BCAC834F-9504-42DC-A68F-785F5E73699F}.Debug|x86.Build.0 = Debug|Win32
+		{BCAC834F-9504-42DC-A68F-785F5E73699F}.Release|x64.ActiveCfg = Release|x64
+		{BCAC834F-9504-42DC-A68F-785F5E73699F}.Release|x64.Build.0 = Release|x64
+		{BCAC834F-9504-42DC-A68F-785F5E73699F}.Release|x86.ActiveCfg = Release|Win32
+		{BCAC834F-9504-42DC-A68F-785F5E73699F}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4903A89-5966-410C-9809-1928789639A9}
+	EndGlobalSection
+EndGlobal
