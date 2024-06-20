@@ -6,7 +6,7 @@
 #include <stdlib.h>  // calloc(),free()
 
 // 関数プロトタイプ
-static int hash(int key, int size);
+static int hash(const Member *x, int size);
 static void setNode(Node* n, const Member* x, Node* next);
 
 
@@ -26,7 +26,7 @@ ChainHashResult Initialize(ChainHash* h, int size)
 
 Node* Search(const ChainHash* h, const Member* x)
 {
-	int key = hash(x->no, h->size);
+	int key = hash(x, h->size);
 	Node* p = h->table[key];
 	while (p != nullptr) {
 		if (p->data.no == x->no) {
@@ -38,7 +38,7 @@ Node* Search(const ChainHash* h, const Member* x)
 }
 ChainHashResult Add(ChainHash* h, const Member* x)
 {
-	int key = hash(x->no, h->size);
+	int key = hash(x, h->size);
 	Node* p = h->table[key];
 	// 既に登録済?
 	while (p != nullptr) {
@@ -58,7 +58,7 @@ ChainHashResult Add(ChainHash* h, const Member* x)
 
 ChainHashResult Remove(ChainHash* h, const Member* x)
 {
-	int key = hash(x->no, h->size);
+	int key = hash(x, h->size);
 	Node* p = h->table[key];
 	Node** pp =&h->table[key];
 	while (p != nullptr) {
@@ -105,9 +105,9 @@ void Terminate(ChainHash* h)
 	h->size = 0;
 }
 
-static int hash(int key, int size)
+static int hash(const Member *x, int size)
 {
-	return key % size;
+	return x->no % size;
 }
 static void setNode(Node* n, const Member* x, Node* next)
 {
