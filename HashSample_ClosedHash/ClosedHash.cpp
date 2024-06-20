@@ -7,8 +7,8 @@
 #include "ClosedHash.h"
 
 // 関数プロトタイプ
-static int hash(int key, int size);
-static int rehash(int key, int size);
+static int hash(const ClosedHash *h, const Member *x);
+static int rehash(const ClosedHash *h,int key);
 static void setBucket(Bucket *n, const Member* x, Status stat);
 
 
@@ -28,13 +28,13 @@ ClosedHashResult Initialize(ClosedHash* h, int size)
 
 Bucket* Search(const ClosedHash* h, const Member* x)
 {
-	int key = hash(x->no, h->size);
+	int key = hash(h, x);
 	Bucket* p = &h->table[key];
 	for (int i = 0; p->stat != Empty && i < h->size; i++) {
 		if (p->stat == Occupied && p->data.no == x->no) {
 			return p;
 		}
-		key = rehash(key, h->size);
+		key = rehash(h, key);
 		p = &h->table[key];
 	}
 	return nullptr;
@@ -42,7 +42,7 @@ Bucket* Search(const ClosedHash* h, const Member* x)
 
 ClosedHashResult Add(ClosedHash* h, const Member* x)
 {
-	int key = hash(x->no, h->size);
+	int key = hash(h, x);
 	Bucket* p = &h->table[key];
 
 	if (Search(h, x) != nullptr) {
@@ -53,7 +53,7 @@ ClosedHashResult Add(ClosedHash* h, const Member* x)
 			setBucket(p, x, Occupied);
 			return SUCCESS;
 		}
-		key = rehash(key, h->size);
+		key = rehash(h, key);
 		p = &h->table[key];
 	}
 	return ADD_NO_SPACE;
@@ -103,13 +103,13 @@ void Terminate(ClosedHash* h)
 	h->table = nullptr;
 }
 
-static int hash(int key, int size) 
+static int hash(const ClosedHash *h,const Member *x) 
 {
-	return key % size;
+	return x->no % h->size;
 }
-static int rehash(int key, int size)
+static int rehash(const ClosedHash *h,int key)
 {
-	return (key + 1) % size;
+	return (key + 1) % h->size;
 }
 static void setBucket(Bucket* n, const Member* x, Status stat)
 {
