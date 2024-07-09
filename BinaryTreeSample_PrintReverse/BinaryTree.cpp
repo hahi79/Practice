@@ -75,7 +75,7 @@ bool Remove(BinNode** root, const Member* x)
 	}
 	else {
 		left = &(*p)->left;
-		while ((*left)->right == nullptr) {
+		while ((*left)->right != nullptr) {
 			left = &(*left)->right;
 		}
 		next = *left;
