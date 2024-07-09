@@ -22,6 +22,10 @@ bool Remove(BinNode **root, const Member* x);
 // 全ノードの表示
 void PrintTree(const BinNode* p);
 // 全ノードの削除
-void FreeTree(BinNode*p);
+void FreeTree(BinNode* p);
+// ダンプ
+void DumpTree(BinNode* p, int level = 0);
+// ツリー状態表示
+void PrintTreeState(BinNode* p);
 
 #endif // __BinaryTree

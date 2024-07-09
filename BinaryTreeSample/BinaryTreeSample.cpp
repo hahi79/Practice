@@ -12,6 +12,8 @@ typedef enum {
 	REMOVE,
 	SEARCH,
 	PRINT,
+	PRINT_TREE,
+	DUMP,
 } Menu;
 
 // 関数プロトタイプ
@@ -48,6 +50,12 @@ int main()
 			puts("【一覧表】");
 			PrintTree(root);
 			break;
+		case PRINT_TREE:
+			PrintTreeState(root);
+			break;
+		case DUMP:
+			DumpTree(root);
+			break;
 		}
 	} while (menu != TERMINATE);
 
@@ -59,17 +67,17 @@ Menu SelectMenu()
 {
 	int ch;
 	do {
-		printf("\n(1)挿入 (2)削除 (3)探索 (4)表示 (0)終了:");
+		printf("\n(1)挿入 (2)削除 (3)探索 (4)表示 (5) ツリー表示 (6)ダンプ (0)終了:");
 		scanf("%d", &ch);
-	} while (ch < TERMINATE || PRINT < ch);
+	} while (ch < TERMINATE || DUMP < ch);
 	return (Menu)ch;
 }
 void setup(BinNode **root)
 {
 	Member data[] = {
 		{1,"赤尾"},
-		{5,"武田"},
 		{10,"小野"},
+		{5,"武田"},
 		{12,"鈴木"},
 		{14,"神崎"},
 	};
