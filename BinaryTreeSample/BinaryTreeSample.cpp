@@ -49,6 +49,8 @@ int main()
 		case PRINT:
 			puts("【一覧表】");
 			PrintTree(root);
+			//PrintTreeFirstVisit(root);
+			//PrintTreeLastVisit(root);
 			break;
 		case PRINT_TREE:
 			PrintTreeState(root);

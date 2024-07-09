@@ -21,6 +21,10 @@ BinNode* Add(BinNode *p,const Member *x);
 bool Remove(BinNode **root, const Member* x);
 // 全ノードの表示
 void PrintTree(const BinNode* p);
+// 全ノードの表示(行きがけ順)
+void PrintTreeFirstVisit(const BinNode* p);
+// 全ノードの表示(帰りがけ順)
+void PrintTreeLastVisit(const BinNode* p);
 // 全ノードの削除
 void FreeTree(BinNode* p);
 // ダンプ

@@ -8,7 +8,6 @@
 // 関数プロトタイプ
 static BinNode* allocBinNode(void);
 static void setBinNode(BinNode* node, const Member *x, const BinNode* left, const BinNode* right);
-static void dumpMem(const void* _adrs, int dumpSize, const char* title);
 
 // 探索
 BinNode* Search(BinNode* p, const Member* x)
@@ -53,7 +52,7 @@ bool Remove(BinNode** root, const Member* x)
 	BinNode* next, * temp;
 	BinNode** left;
 	BinNode** p = root;
-
+	// 指定のデータを探す
 	while (true) {
 		int cond;
 		if (*p == nullptr) {
@@ -71,19 +70,27 @@ bool Remove(BinNode** root, const Member* x)
 			p = &(*p)->right;
 		}
 	}
+	// *p が削除すべきデータ
+	// (pは親のleftまたrightを指す)
 	if ((*p)->left == nullptr) {
+		// nextが差し替え
 		next = (*p)->right;
 	}
 	else {
+		// left中の最大を探す
 		left = &(*p)->left;
-		while ((*left)->right == nullptr) {
+		while ((*left)->right != nullptr) {
 			left = &(*left)->right;
 		}
+		// *leftは left中の最大
+		// (leftは親のleftまたはrightを指す)
+		// nextが　*pの差し替えにする
 		next = *left;
 		*left = (*left)->left;
 		next->left = (*p)->left;
 		next->right = (*p)->right;
 	}
+	// *p をnextに差し替えて *pを削除
 	temp = *p;
 	*p = next;
 	free(temp);
@@ -99,6 +106,7 @@ void PrintTree(const BinNode* p)
 		PrintTree(p->right);
 	}
 }
+
 // 全ノードの削除
 void FreeTree(BinNode* p)
 {
@@ -126,7 +134,9 @@ static void setBinNode(BinNode* node, const Member* x, const BinNode* left, cons
 	node->left = (BinNode*)left;
 	node->right = (BinNode*)right;
 }
-
+//----------------------------------------------------------
+static void dumpMem(const void* _adrs, int dumpSize, const char* title);
+// ダンプ
 void DumpTree(BinNode* p,int level)
 {
 	if (p != nullptr) {
@@ -137,7 +147,6 @@ void DumpTree(BinNode* p,int level)
 		DumpTree(p->right, level + 1);
 	}
 }
-
 static void dumpMem(const void* _adrs, int dumpSize, const char* title)
 {
 	const int lineSize = 16;
@@ -172,28 +181,24 @@ static void dumpMem(const void* _adrs, int dumpSize, const char* title)
 	putchar('\n');
 	putchar('\n');
 }
-
-// ツリー状態をプリント
+//----------------------------------------------------------
 static void getMaxLevel(BinNode* p, int level, int* maxLevel);
-static void setNodeList(BinNode* p, BinNode*** nodeListPtr, int level, int setNodeLevel,int maxLevel);
+static void setNodeList(BinNode* p, BinNode** nodeList, int idx);
 static void printSpace(int n);
 static int powerOf2(int n);
+// ツリー状態をプリント
 void PrintTreeState(BinNode* p)
 {
 	int maxLevel = 0;
 	getMaxLevel(p, 0, &maxLevel);
 	int listSize = powerOf2(maxLevel + 1) - 1;
 	BinNode** nodeList = (BinNode**)calloc(listSize, sizeof(BinNode*));
-	BinNode** nodeListPtr = nodeList;
 	//          0       
 	//        ／ ＼           
 	//       1     2      =>  nodeList[] へ格納(nullptrも格納)
 	//     ／ ＼  ／ ＼
 	//    3    4  5    6
-	//
-	for (int  lv = 0; lv <= maxLevel; lv++) {
-		setNodeList(p, &nodeListPtr, 0, lv, maxLevel);
-	}
+	setNodeList(p, nodeList, 0);
 
 	int height = maxLevel + 1;
 	
@@ -233,22 +238,12 @@ exit:
 	free(nodeList);
 }
 // nodeList[]に登録
-static void setNodeList(BinNode* p,BinNode*** nodeListPtr,int level,int setNodeLevel,int maxLevel)
+static void setNodeList(BinNode* p,BinNode** nodeList,int idx)
 {
-	if (level > maxLevel) {
-		return;
-	}
-	if (level == setNodeLevel) {
-		BinNode** np = (*nodeListPtr)++;
-		*np = p;
-	}
 	if (p != nullptr) {
-		setNodeList(p->left, nodeListPtr,level + 1, setNodeLevel,maxLevel);
-		setNodeList(p->right, nodeListPtr,level + 1, setNodeLevel, maxLevel);
-	}
-	else {
-		setNodeList(nullptr, nodeListPtr, level + 1, setNodeLevel, maxLevel);
-		setNodeList(nullptr, nodeListPtr, level + 1, setNodeLevel, maxLevel);
+		nodeList[idx] = p;
+		setNodeList(p->left, nodeList, idx * 2 + 1);
+		setNodeList(p->right, nodeList, idx * 2 + 2);
 	}
 }
 // 最大レベルを得る
@@ -278,4 +273,23 @@ static int powerOf2(int n)
 		n--;
 	}
 	return power;
+}
+//----------------------------------------------------------
+// 全ノードの表示(行きがけ順)
+void PrintTreeFirstVisit(const BinNode* p)
+{
+	if (p != nullptr) {
+		PrintLnMember(&p->data);
+		PrintTreeFirstVisit(p->left);
+		PrintTreeFirstVisit(p->right);
+	}
+}
+// 全ノードの表示(帰りがけ順)
+void PrintTreeLastVisit(const BinNode* p)
+{
+	if (p != nullptr) {
+		PrintTreeLastVisit(p->left);
+		PrintTreeLastVisit(p->right);
+		PrintLnMember(&p->data);
+	}
 }
